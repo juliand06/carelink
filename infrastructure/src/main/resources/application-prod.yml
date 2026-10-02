@@ -1,0 +1,30 @@
+# Perfil de produccion: todo viene de variables de entorno.
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        "[physical_naming_strategy]": org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        "[default_schema]": carelink_schema
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    create-schemas: true
+    schemas:
+      - carelink_schema
+    default-schema: carelink_schema
+    table: flyway_schema_history_carelink
+    placeholders:
+      db_schema: carelink_schema
+
+server:
+  port: ${PORT:8083}

@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CareLinkApplication<infrastructure>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.carelink.infrastructure.CareLinkApplication",
+            "projectName": "infrastructure",
+            "args": ""
+        }
+    ]
+}
